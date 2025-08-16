@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Video Editor Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0b2183 0%, #7e2ad3 100%);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-indigo-600">VideoPro</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-indigo-600 transition">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-indigo-600 transition">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-indigo-600 transition">Skills</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-indigo-600 transition">Portfolio</a>
+                    <a href="#contact" class="text-gray-700 hover:text-indigo-600 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4 shadow-lg">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-indigo-600 transition">Home</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-indigo-600 transition">About</a>
+            <a href="#skills" class="block py-2 text-gray-700 hover:text-indigo-600 transition">Skills</a>
+            <a href="#portfolio" class="block py-2 text-gray-700 hover:text-indigo-600 transition">Portfolio</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-indigo-600 transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-yellow-300">Abdul Baseer</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Professional Video & Photo Editor</h2>
+                    <p class="text-lg mb-8">Transforming your vision into stunning visual stories with expert editing in Premiere Pro, After Effects, CapCut, and Lightroom.</p>
+                    <div class="flex space-x-4">
+                        <a href="#portfolio" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition">View My Work</a>
+                        <a href="#contact" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition">Hire Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                        <!-- Replace with your image -->
+                        <img src="image/myphoto.jpeg" alt="Profile" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-indigo-600 opacity-20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                    <div class="relative w-64 h-64 rounded-lg overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Editing Setup" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Crafting Visual Stories Through Expert Editing</h3>
+                    <p class="text-gray-600 mb-6">With over 3 years of professional experience in video and photo editing, I specialize in transforming raw footage and images into compelling visual narratives. My expertise spans across industry-leading software including Adobe Premiere Pro, After Effects, Lightroom, and CapCut.</p>
+                    <p class="text-gray-600 mb-6">I approach each project with a keen eye for detail, a passion for storytelling, and a commitment to delivering exceptional quality. Whether it's cinematic video editing, dynamic motion graphics, or professional photo retouching, I bring creativity and technical precision to every frame.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-indigo-600 mr-2"></i>
+                            <span class="text-gray-700">Professional Quality</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-indigo-600 mr-2"></i>
+                            <span class="text-gray-700">Fast Turnaround</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-indigo-600 mr-2"></i>
+                            <span class="text-gray-700">Creative Solutions</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-indigo-600 mr-2"></i>
+                            <span class="text-gray-700">Client Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-color: #f8faff; padding: 50px 20px; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  
+  <!-- Section Title -->
+  <h2 style="font-size: 2rem; font-weight: bold; color: #1e3a8a; margin-bottom: 10px;">
+    My Qualifications
+  </h2>
+  
+  <!-- Underline Accent -->
+  <div style="width: 60px; height: 4px; background-color: #3B82F6; margin: 0 auto 40px auto; border-radius: 2px;"></div>
+  
+  <!-- Qualification Items -->
+  <div style="max-width: 900px; margin: 0 auto; text-align: left; line-height: 1.6; font-size: 1.05rem; color: #333;">
+    
+    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px;">
+      <strong style="color: #3B82F6;">🎓 Bachelor’s in Computer Science</strong><br>
+      Comsats University Islamabad, Abbottabad Campus — Graduated 2025.
+    </div>
+</section>
+
+    <!-- Skills Section -->
+     
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">My Skills</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            <div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Video Editing Skills -->
+                <div >
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-video mr-3 text-indigo-600"></i> Video Editing
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="text-center">
+    <!-- 🔼 Image on top -->
+   
+
+    <!-- 🔽 Text and Skill Bar -->
+    <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Adobe Premiere Pro</span>
+                                <span class="text-gray-600">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Adobe After Effects</span>
+                                <span class="text-gray-600">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                         <br>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">CapCut</span>
+                                <span class="text-gray-600">85%</span>
+                            </div>
+                           
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                         <br>
+                        <div>
+                            </div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Color Grading</span>
+                                <span class="text-gray-600">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo Editing Skills -->
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-camera mr-3 text-indigo-600"></i> Photo Editing
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Adobe Lightroom</span>
+                                <span class="text-gray-600">94%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Adobe Photoshop</span>
+                                <span class="text-gray-600">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Retouching</span>
+                                <span class="text-gray-600">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-700">Color Correction</span>
+                                <span class="text-gray-600">93%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 93%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+          
+            <div class="mt-16">
+                <h3 class="text-xl font-semibold text-gray-800 mb-8 text-center">Software Proficiency</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                    <div class="flex flex-col items-center p-1 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+                        <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                            <i class="fab fa-adobe text-5xl text-red-500"></i>
+                        </div>
+                       <img src="image/premiere pro.png" alt="Premiere Logo" class="mx-auto w-20 h-20 ">
+                        
+                        <span class="font-medium text-gray-700 mt-4 contains">Premiere Pro</span>
+
+                    </div>
+                    <div class="flex flex-col items-center p-1 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+                        <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                            <i class="fab fa-adobe text-5xl text-purple-500"></i>
+                        </div>
+                        <img src="image/after effect.png" alt="after effect logo" class="mx-auto w-20 h-20 mb-2">
+                        <span class="font-medium text-gray-700">After Effects</span>
+                    </div>
+                    <div class="flex flex-col items-center p-1 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+                        <div class="w-16 h-16 mb-3 flex items-center justify-center">
+                            <i class="fab fa-adobe text-5xl text-blue-500"></i>
+                        </div>
+                        <img src="image/lightroom.png" alt="lightroom Logo" class="mx-auto w-20 h-20 mb-2">
+                        <span class="font-medium text-gray-700">Lightroom</span>
+                    </div>
+                   <div class="flex flex-col items-center p-1 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+                        <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                            <i class="fab fa-adobe text-5xl text-blue-500"></i>
+                        </div>
+                        <img src="image/capcut.webp" alt="capcut Logo" class="mx-auto w-20 h-20 mb-2">
+                        <span class="font-medium text-gray-700">Capcut</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">My Portfolio</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">A showcase of my best video and photo editing projects across various styles and industries.</p>
+            </div>
+            
+            <!-- Portfolio Filter -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-md shadow-sm">
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium rounded-l-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" data-filter="all">
+                        All Work
+                    </button>
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium border-t border-b border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" data-filter="video">
+                        Video Editing
+                    </button>
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" data-filter="photo">
+                        Photo Editing
+                    </button>
+                   
+                </div>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item video motion rounded-lg overflow-hidden shadow-md bg-white">
+                    <div class="relative overflow-hidden">
+                        <img src="image/game-edits.jpg" alt="gamming Edit" class="w-full h-64 object-cover transition duration-500 hover:scale-105">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+                            <div class="text-center p-4">
+                                <h3 class="text-white text-xl font-bold mb-2">gamming Videos</h3>
+                                <p class="text-gray-200 mb-4">Edited in Premiere Pro with proffesional transition and situable cuts </p>
+                                <a href="projects.html" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">gamming Videos</h3>
+                        <p class="text-gray-600">Premiere Pro • After Effects</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+               <div class="portfolio-item video motion rounded-lg overflow-hidden shadow-md bg-white">
+                    <div class="relative overflow-hidden">
+                        <img src="image/photo_retouch.jfif" alt="Photo Retouching" class="w-full h-64 object-cover transition duration-500 hover:scale-105"
+>
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+                            <div class="text-center p-4">
+                                <h3 class="text-white text-xl font-bold mb-2">Professional Photo Retouching</h3>
+                                <p class="text-gray-200 mb-4">Edited in Lightroom and Photoshop </p>
+                                <a href="photos.html" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">Professional Photo Retouching</h3>
+                        <p class="text-gray-600">Edited in Lightroom and Photoshop</p>
+                    </div>
+                </div>
+                
+ <div class="portfolio-item video motion rounded-lg overflow-hidden shadow-md bg-white">
+                    <div class="relative overflow-hidden">
+                        <img src="image/transitions.png" alt="transitions" class="w-full h-64 object-cover transition duration-500 hover:scale-105"
+>
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+                            <div class="text-center p-4">
+                                <h3 class="text-white text-xl font-bold mb-2">transition, cuts and Sfx</h3>
+                                <p class="text-gray-200 mb-4">Premiere Pro • After Effects</p>
+                                <a href="transitions.html" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">transition, cuts and Sfx</h3>
+                        <p class="text-gray-600">Premiere Pro • After Effects</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item video capcut rounded-lg overflow-hidden shadow-md bg-white">
+                    <div class="relative overflow-hidden">
+                        <img src="image/cinematic-videos.jfif" alt="Social Media Edit" class="w-full h-64 object-cover transition duration-500 hover:scale-105">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+                            <div class="text-center p-4">
+                                <h3 class="text-white text-xl font-bold mb-2">cinematic cuts and reels</h3>
+                                <p class="text-gray-200 mb-4">Quick turnaround edit using CapCut</p>
+                                <a href="projectb.html" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">cinematic</h3>
+                        <p class="text-gray-600">CapCut • Premiere Pro</p>
+                    </div>
+                </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">View More Projects</a>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Have a project in mind or want to discuss your editing needs? I'd love to hear from you!</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Email</h4>
+                                <p class="text-gray-700">khattakabdulbaseer8@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Phone</h4>
+                                <p class="text-gray-700">+92 320 9359849</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Location</h4>
+                                <p class="text-gray-700">Nowshera, KPK</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-gray-800 mt-12 mb-6">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white transition">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form id="contact-form" class="space-y-6" novalidate>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                                <input required type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input required type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="your@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <input required type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Project Inquiry">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea required id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <div>
+                            <button id="submit-btn" type="submit" class="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Send Message</button>
+                        </div>
+                        <div id="form-alert" class="hidden text-sm"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold">VideoPro</span>
+                    <p class="text-gray-400 mt-2">Professional Video & Photo Editing Services</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">&copy; 2025 VideoPro. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Portfolio filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('bg-indigo-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-700');
+                });
+                
+                // Add active class to clicked button
+                this.classList.remove('bg-white', 'text-gray-700');
+                this.classList.add('bg-indigo-600', 'text-white');
+                
+                const filter = this.getAttribute('data-filter');
+                const portfolioItems = document.querySelectorAll('.portfolio-item');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+                e.preventDefault();
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formAlert = document.getElementById('form-alert');
+
+        function showAlert(message, type) {
+            formAlert.textContent = message;
+            formAlert.className = '';
+            formAlert.classList.add('mt-2', 'p-3', 'rounded', 'text-sm');
+            if (type === 'success') {
+                formAlert.classList.add('bg-green-100', 'text-green-700', 'border', 'border-green-200');
+            } else {
+                formAlert.classList.add('bg-red-100', 'text-red-700', 'border', 'border-red-200');
+            }
+        }
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            showAlert('', '');
+
+            const formData = new FormData(contactForm);
+            const payload = Object.fromEntries(formData.entries());
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok || !data.success) {
+                    throw new Error(data.error || 'Failed to send message');
+                }
+                showAlert('Message sent! I will get back to you shortly.', 'success');
+                contactForm.reset();
+            } catch (err) {
+                showAlert(err.message || 'Something went wrong. Please try again later.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+    </script>
+</body>
+</html>
