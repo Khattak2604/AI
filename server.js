@@ -22,8 +22,13 @@ const contactLimiter = rateLimit({
 });
 
 // Serve static files
-const publicDir = path.join(__dirname, 'public');
-app.use(express.static(publicDir));
+const staticDir = process.env.STATIC_DIR ? path.resolve(process.env.STATIC_DIR) : path.join(__dirname, 'public');
+app.use(express.static(staticDir));
+
+// Root route to serve index.html
+app.get('/', (_req, res) => {
+    res.sendFile(path.join(staticDir, 'index.html'));
+});
 
 // Healthcheck
 app.get('/health', (_req, res) => {
